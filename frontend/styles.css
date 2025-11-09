@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.timeslot {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.assigned {
+  color: green;
+  font-weight: bold;
+}
+
+.unassigned {
+  color: gray;
+}
+
+button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
