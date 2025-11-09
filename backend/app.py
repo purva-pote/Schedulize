@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-time_slots = ["9:00-10:00", "10:00-11:00", "11:00-12:00"]
+time_slots = ["9:00-10:00", "10:00-11:00", "11:00-12:00", "13:00-14:00", "14:00-15:00", "15:00-16:00"]
 assignments = {slot: None for slot in time_slots}
 
 @app.route('/timeslots', methods=['GET'])
