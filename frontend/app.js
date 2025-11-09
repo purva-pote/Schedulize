@@ -70,4 +70,6 @@ function clearAll() {
   }
 }
 
+let network = null;
+
 window.onload = fetchTimeslots;

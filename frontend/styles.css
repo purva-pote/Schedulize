@@ -1,17 +1,60 @@
+
+.sixtyfour-<uniquifier> {
+  font-family: "Sixtyfour", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500; 
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Courier New', Courier, monospace, sans-serif;
   padding: 20px;
+  background: #ffdcee;
+  font-weight: bold;
+  background-size: 40px 40px; /* Defines the size of each grid cell */
+  background-image: 
+    linear-gradient(to right, #91436b38 1px, transparent 1px), /* Vertical lines */
+    linear-gradient(to bottom, #91436b38 1px, transparent 1px); /* Horizontal lines */
+}
+
+.heading {
+  font-family: Sixtyfour;
+  text-align: center;
+  color: #510027;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  text-shadow: #5100278e 2px 2px 4px;
+}
+
+.subheading {
+  text-align: center;
+  font-weight: 40px;
+  color: #510027a9;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.task {
+  margin-bottom: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  border-radius: 6px;
 }
 
 .timeslot {
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1.5px solid #510027;
   width: 350px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 5px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-weight: 20px;
 }
 
 .assigned {
@@ -24,7 +67,25 @@ body {
 }
 
 button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  cursor: pointer;
+    border-radius: 10px;
+    border: 1.5px solid #510027;
+    background: #ffd3ea;
+    margin-left: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
+
+.clear {
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #510027;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
