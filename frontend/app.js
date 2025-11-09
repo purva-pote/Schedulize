@@ -3,11 +3,14 @@ const API_URL = "http://127.0.0.1:5000";
 const taskInput = document.getElementById('taskInput');
 const timeslotContainer = document.getElementById('timeslotContainer');
 
+let network = null;
+
 function fetchTimeslots() {
   fetch(`${API_URL}/timeslots`)
     .then(res => res.json())
     .then(data => {
       displayTimeslots(data.time_slots, data.assignments);
+      drawDiscreteGraph(data.time_slots, data.assignments);
     });
 }
 
@@ -70,6 +73,37 @@ function clearAll() {
   }
 }
 
-let network = null;
+function drawDiscreteGraph(slots, assignments) {
+  const nodes = slots.map((slot, index) => ({
+    id: index + 1,
+    label: slot,
+    color: assignments[slot] ? 'lightgreen' : 'lightgray',
+    shape: 'box',
+    font: {size: 16}
+  }));
 
-window.onload = fetchTimeslots;
+  const edges = [];
+  for (let i = 1; i < nodes.length; i++) {
+    edges.push({from: i, to: i + 1, arrows: 'to', smooth: false});
+  }
+
+  const container = document.getElementById('graph-container');
+  const data = {nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges)};
+  const options = {
+    physics: false,
+    layout: {improvedLayout: false},
+    interaction: {hover: true},
+    edges: {arrows: {to: {enabled: true, scaleFactor: 0.5}}}
+  };
+
+  if (network) {
+    network.setData(data);
+    network.setOptions(options);
+  } else {
+    network = new vis.Network(container, data, options);
+  }
+}
+
+window.addEventListener('load', () => {
+  fetchTimeslots();
+});
